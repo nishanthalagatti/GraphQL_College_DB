@@ -9,3 +9,15 @@ export async function getStudent(parent, args, contextValue, info) {
   });
   return student;
 }
+
+export async function getInstructors(parent, args, contextValue, info) {
+  const instructors = await contextValue.prisma.instructor.findMany();
+  return instructors;
+}
+
+export async function getInstructor(parent, args, contextValue, info) {
+  const instructor = await contextValue.prisma.instructor.findUnique({
+    where: { ...args },
+  });
+  return instructor;
+}

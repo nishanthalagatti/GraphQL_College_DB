@@ -1,6 +1,8 @@
 type Query {
   getStudents: [Student!]!
   getStudent(id: Int!): Student
+  getInstructors: [Instructor!]!
+  getInstructor(id: Int!): Instructor
 }
 
 type Mutation {
