@@ -11,3 +11,17 @@ export async function addInstructor(parent, args, contextValue, info) {
   });
   return instructor;
 }
+
+export async function addCourse(parent, args, contextValue, info) {
+  const course = await contextValue.prisma.course.create({
+    data: { ...args },
+  });
+  return course;
+}
+
+export async function addTake(parent, args, contextValue, info) {
+  const take = await contextValue.prisma.takes.create({
+    data: { ...args },
+  });
+  return take;
+}

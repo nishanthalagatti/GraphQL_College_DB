@@ -1,10 +1,12 @@
 type Query {
   getStudents: [Student!]!
-  getStudent(id: Int!): Student
+  getStudent(studentId: Int!): Student
   getInstructors: [Instructor!]!
-  getInstructor(id: Int!): Instructor
+  getInstructor(instructorId: Int!): Instructor
   getCourses: [Course!]!
-  getCourse(id: Int!): Course
+  getCourse(courseId: Int!): Course
+  getTakes: [Takes!]!
+  getTake(studentId: Int!, courseId: Int!): Takes
 }
 
 type Mutation {
@@ -16,10 +18,12 @@ type Mutation {
     state: String!
   ): Student
   addInstructor(name: String!, department: String!, rank: String!): Instructor
+  addCourse(title: String!, courseHours: Int!, instructorId: Int!): Course
+  addTake(studentId: Int!, courseId: Int!, grade: String!): Takes
 }
 
 type Student {
-  id: ID!
+  studentId: ID!
   firstName: String!
   lastName: String!
   address: String!
@@ -29,15 +33,16 @@ type Student {
 }
 
 type Course {
-  id: ID!
+  courseId: ID!
   title: String!
   courseHours: Int!
   hasStudents: [Takes!]!
+  instructor: Instructor!
   instructorId: Int!
 }
 
 type Instructor {
-  id: ID!
+  instructorId: ID!
   name: String!
   department: String!
   rank: String!
@@ -45,6 +50,8 @@ type Instructor {
 }
 
 type Takes {
+  student: Student!
+  course: Course!
   studentId: ID!
   courseId: ID!
   grade: String!

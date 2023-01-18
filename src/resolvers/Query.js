@@ -33,3 +33,17 @@ export async function getCourse(parent, args, contextValue, info) {
   });
   return course;
 }
+
+export async function getTakes(parent, args, contextValue, info) {
+  const takes = await contextValue.prisma.takes.findMany();
+  return takes;
+}
+
+export async function getTake(parent, args, contextValue, info) {
+  const take = await contextValue.prisma.takes.findUnique({
+    where: {
+      studentId_courseId: { ...args },
+    },
+  });
+  return take;
+}
