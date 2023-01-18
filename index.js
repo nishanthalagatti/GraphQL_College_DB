@@ -2,10 +2,12 @@ import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import { PrismaClient } from "@prisma/client";
 import fs from "fs";
+import * as Query from "./src/resolvers/Query.js";
+import * as Student from "./src/resolvers/Student.js";
 
 const prisma = new PrismaClient();
 
-const resolvers = {};
+const resolvers = { Query, Student };
 
 const server = new ApolloServer({
   typeDefs: fs.readFileSync("./src/schema.graphql", "utf-8"),
