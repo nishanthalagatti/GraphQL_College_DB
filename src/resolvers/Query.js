@@ -21,3 +21,15 @@ export async function getInstructor(parent, args, contextValue, info) {
   });
   return instructor;
 }
+
+export async function getCourses(parent, args, contextValue, info) {
+  const courses = await contextValue.prisma.course.findMany();
+  return courses;
+}
+
+export async function getCourse(parent, args, contextValue, info) {
+  const course = await contextValue.prisma.course.findUnique({
+    where: { ...args },
+  });
+  return course;
+}

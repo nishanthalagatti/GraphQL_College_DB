@@ -6,10 +6,11 @@ import * as Query from "./src/resolvers/Query.js";
 import * as Student from "./src/resolvers/Student.js";
 import * as Mutation from "./src/resolvers/Mutation.js";
 import * as Instructor from "./src/resolvers/Instructor.js";
+import * as Course from "./src/resolvers/Course.js";
 
 const prisma = new PrismaClient();
 
-const resolvers = { Query, Student, Mutation, Instructor };
+const resolvers = { Query, Student, Mutation, Instructor, Course };
 
 const server = new ApolloServer({
   typeDefs: fs.readFileSync("./src/schema.graphql", "utf-8"),

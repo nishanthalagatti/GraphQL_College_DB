@@ -3,6 +3,8 @@ type Query {
   getStudent(id: Int!): Student
   getInstructors: [Instructor!]!
   getInstructor(id: Int!): Instructor
+  getCourses: [Course!]!
+  getCourse(id: Int!): Course
 }
 
 type Mutation {
