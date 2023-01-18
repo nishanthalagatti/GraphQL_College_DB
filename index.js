@@ -4,10 +4,11 @@ import { PrismaClient } from "@prisma/client";
 import fs from "fs";
 import * as Query from "./src/resolvers/Query.js";
 import * as Student from "./src/resolvers/Student.js";
+import * as Mutation from "./src/resolvers/Mutation.js";
 
 const prisma = new PrismaClient();
 
-const resolvers = { Query, Student };
+const resolvers = { Query, Student, Mutation };
 
 const server = new ApolloServer({
   typeDefs: fs.readFileSync("./src/schema.graphql", "utf-8"),

@@ -4,4 +4,5 @@ export async function takesCourse(parent, args, contextValue, info) {
       studentId: parent.id,
     },
   });
+  return takes;
 }

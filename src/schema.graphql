@@ -3,6 +3,16 @@ type Query {
   getStudent(id: Int!): Student
 }
 
+type Mutation {
+  addStudent(
+    firstName: String!
+    lastName: String!
+    city: String!
+    address: String!
+    state: String!
+  ): Student
+}
+
 type Student {
   id: ID!
   firstName: String!
