@@ -13,6 +13,7 @@ type Course {
   title: String!
   courseHours: Int!
   hasStudents: [Takes!]!
+  instructorId: Int!
 }
 
 type Instructor {
