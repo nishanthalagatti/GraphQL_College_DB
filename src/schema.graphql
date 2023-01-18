@@ -1,0 +1,30 @@
+type Student {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  address: String!
+  city: String!
+  state: String!
+  takesCourse: [Takes!]!
+}
+
+type Course {
+  id: ID!
+  title: String!
+  courseHours: Int!
+  hasStudents: [Takes!]!
+}
+
+type Instructor {
+  id: ID!
+  name: String!
+  department: String!
+  rank: String!
+  teaches: [Course!]!
+}
+
+type Takes {
+  studentId: ID!
+  courseId: ID!
+  grade: String!
+}
