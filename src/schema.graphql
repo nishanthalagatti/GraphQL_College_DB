@@ -34,6 +34,12 @@ type Mutation {
     department: String
     rank: String
   ): Instructor
+  updateCourse(
+    courseId: Int!
+    title: String
+    courseHours: Int
+    instructorId: Int
+  ): Course
 }
 
 type Student {

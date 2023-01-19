@@ -41,3 +41,11 @@ export async function updateInstructor(parent, args, contextValue, info) {
   });
   return instructor;
 }
+
+export async function updateCourse(parent, args, contextValue, info) {
+  const course = await contextValue.prisma.course.update({
+    where: { courseId: args.courseId },
+    data: { ...args },
+  });
+  return course;
+}
