@@ -20,6 +20,14 @@ type Mutation {
   addInstructor(name: String!, department: String!, rank: String!): Instructor
   addCourse(title: String!, courseHours: Int!, instructorId: Int!): Course
   addTake(studentId: Int!, courseId: Int!, grade: String!): Takes
+  updateStudent(
+    studentId: Int!
+    firstName: String
+    lastName: String
+    city: String
+    address: String
+    state: String
+  ): Student
 }
 
 type Student {

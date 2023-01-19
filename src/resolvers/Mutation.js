@@ -25,3 +25,11 @@ export async function addTake(parent, args, contextValue, info) {
   });
   return take;
 }
+
+export async function updateStudent(parent, args, contextValue, info) {
+  const student = await contextValue.prisma.student.update({
+    where: { studentId: args.studentId },
+    data: { ...args },
+  });
+  return student;
+}
