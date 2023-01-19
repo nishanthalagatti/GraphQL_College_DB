@@ -28,6 +28,12 @@ type Mutation {
     address: String
     state: String
   ): Student
+  updateInstructor(
+    instructorId: Int!
+    name: String
+    department: String
+    rank: String
+  ): Instructor
 }
 
 type Student {
