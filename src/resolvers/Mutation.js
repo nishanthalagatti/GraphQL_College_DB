@@ -62,3 +62,36 @@ export async function updateTake(parent, args, contextValue, info) {
   });
   return take;
 }
+
+export async function deleteStudent(parent, args, contextValue, info) {
+  const student = await contextValue.prisma.student.delete({
+    where: { studentId: args.studentId },
+  });
+  return student;
+}
+
+export async function deleteInstructor(parent, args, contextValue, info) {
+  const instructor = await contextValue.prisma.instructor.delete({
+    where: { instructorId: args.instructorId },
+  });
+  return instructor;
+}
+
+export async function deleteCourse(parent, args, contextValue, info) {
+  const course = await contextValue.prisma.course.delete({
+    where: { courseId: args.courseId },
+  });
+  return course;
+}
+
+export async function deleteTake(parent, args, contextValue, info) {
+  const take = await contextValue.prisma.takes.delete({
+    where: {
+      studentId_courseId: {
+        studentId: args.studentId,
+        courseId: args.courseId,
+      },
+    },
+  });
+  return take;
+}

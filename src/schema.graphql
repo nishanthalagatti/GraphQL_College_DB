@@ -41,6 +41,10 @@ type Mutation {
     instructorId: Int
   ): Course
   updateTake(studentId: Int!, courseId: Int!, grade: String): Takes
+  deleteStudent(studentId: Int!): Student
+  deleteInstructor(instructorId: Int!): Instructor
+  deleteCourse(courseId: Int!): Course
+  deleteTake(studentId: Int!, courseId: Int!): Takes
 }
 
 type Student {
