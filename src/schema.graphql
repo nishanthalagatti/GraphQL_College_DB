@@ -40,6 +40,7 @@ type Mutation {
     courseHours: Int
     instructorId: Int
   ): Course
+  updateTake(studentId: Int!, courseId: Int!, grade: String): Takes
 }
 
 type Student {
